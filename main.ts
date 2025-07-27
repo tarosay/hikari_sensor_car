@@ -23,8 +23,12 @@ function 動く (右タイヤ: number, 左タイヤ: number) {
     pins.analogWritePin(AnalogPin.P16, 1023 * (動く右 / 100))
 }
 basic.forever(function () {
-    動く(60, -60)
-    basic.pause(150)
-    動く(0, 0)
-    basic.pause(500)
+    if (input.lightLevel() >= 200) {
+        動く(80, 80)
+    } else {
+        動く(60, -60)
+        basic.pause(150)
+        動く(0, 0)
+        basic.pause(500)
+    }
 })
