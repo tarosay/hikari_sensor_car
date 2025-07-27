@@ -1,3 +1,10 @@
+let 動く右 = 0
+let 動く左 = 0
+let P13_PWM = 0
+let P16_PWM = 0
+let 矢印前 = 0
+// タイヤの回転は、0～100% の範囲で設定します
+// +が前に進む、-が後に進む
 function 動く (右タイヤ: number, 左タイヤ: number) {
     if (右タイヤ >= 0) {
         pins.digitalWritePin(DigitalPin.P8, 0)
@@ -28,11 +35,6 @@ function 動く (右タイヤ: number, 左タイヤ: number) {
     pins.analogWritePin(AnalogPin.P13, P13_PWM)
     pins.analogWritePin(AnalogPin.P16, P16_PWM)
 }
-let P16_PWM = 0
-let P13_PWM = 0
-let 動く左 = 0
-let 動く右 = 0
-let 矢印前 = 0
 basic.forever(function () {
     if (input.lightLevel() >= 100) {
         if (矢印前 == 0) {
