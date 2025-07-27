@@ -19,12 +19,12 @@ function 動く (右タイヤ: number, 左タイヤ: number) {
         pins.digitalWritePin(DigitalPin.P15, 0)
         動く左 = 0 - 左タイヤ
     }
-    pins.analogWritePin(AnalogPin.P13, 動く左)
-    pins.analogWritePin(AnalogPin.P16, 動く右)
+    pins.analogWritePin(AnalogPin.P13, 1023 * (動く左 / 100))
+    pins.analogWritePin(AnalogPin.P16, 1023 * (動く右 / 100))
 }
 basic.forever(function () {
-    動く(200, -200)
-    basic.pause(300)
+    動く(60, -60)
+    basic.pause(150)
     動く(0, 0)
     basic.pause(500)
 })
