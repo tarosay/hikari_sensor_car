@@ -34,7 +34,7 @@ let 動く左 = 0
 let 動く右 = 0
 let 矢印前 = 0
 basic.forever(function () {
-    if (input.lightLevel() >= 200) {
+    if (input.lightLevel() >= 140) {
         if (矢印前 == 0) {
             矢印前 = 1
             basic.showArrow(ArrowNames.North)
